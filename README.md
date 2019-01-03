@@ -12,3 +12,6 @@
 + 后端给的数据可以是这样的结构：1. 行头列表：对象数组（有唯一id属性）。 2. 列头列表：对象数组（有唯一id属性）。 内容区：对象数组（同时有行头列头数组项唯一id，相当于x轴y轴坐标），与之匹配。
 
 > 文字描述，生涩。见demo：src/components/demo-pos-sticky.vue 数据模拟：src/components/mock.js
+
+## 第二种：position absolute的解决方案
+> 后续补充。。。。
