@@ -1,29 +1,14 @@
 # 实现二维表格行头和列头固定的解决方案
+> 在业务中，常常会遇到二维表格固定首行和首列的需求。这里来探讨试验一下，二维表格固定行和列的几种解决方案。作为自我学习和记录成果的过程。
 
-## Project setup
-```
-npm install
-```
+## 第一种：position sticky的解决方案
+1. css布局
++ 上下布局，下方内容区固定高度，内容y轴方向超出出现滚动条，即简单的就实现了首行固定。（但是内容x轴方向内容超出，左边列还没固定）
++ 利用position新属性，sticky `left: 0; top: 0;`，内容x轴方向内容超出出现滚动条，实现左边首列固定。（但是，上方首行未能随着x轴方向滚动条滚动）
++ 监听x轴方向的滚动事件，取得event.scrollLeft值，及时同步给上方首行内容区`transform: translateX(${scrollLeft}px)`，实现首行同时滚动效果。（此时已实现首行首列固定）
++ 多行多列固定，与首行首列固定方案同理即可，自行脑补。
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+2. 数据渲染
++ 后端给的数据可以是这样的结构：1. 行头列表：对象数组（有唯一id属性）。 2. 列头列表：对象数组（有唯一id属性）。 内容区：对象数组（同时有行头列头数组项唯一id，相当于x轴y轴坐标），与之匹配。
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+> 文字描述，生涩。见demo：src/components/demo-pos-sticky.vue 数据模拟：src/components/mock.js
