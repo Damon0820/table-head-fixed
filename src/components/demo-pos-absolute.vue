@@ -1,19 +1,20 @@
 <template>
   <div class="table">
+			待实现
 			<!-- 表格行头：固定行 -->
-			<div class="table-top" >
+			<!-- <div class="table-top" >
 				<div class="wrap">
 					<ul>
 						<li v-for="(course, i) in courseList" :key="i">{{course.name}}</li>
 					</ul>
 				</div>
 			</div>
-			<div class="table-bottom">
+			<div class="table-bottom"> -->
 				<!-- （二维）表格 -->
-				<div class="table-main">
+				<!-- <div class="table-main">
 					
 				</div>
-			</div>
+			</div> -->
 
 			<!-- 表格列头：固定列 -->
 

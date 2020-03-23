@@ -2,20 +2,42 @@
   <div id="app">
     <!-- <img alt="Vue logo" src="./assets/logo.png"> -->
     <!-- <DemoPosAbsolut msg="Welcome to Your Vue.js App"/> -->
-    <DemoPosSticky msg="Welcome to Your Vue.js App"/>
+		<button v-for="item in list" :key="item.label"  @click="active = item.component">{{item.label}}</button>
+    <Component :is="active"></Component>
   </div>
 </template>
 
 <script>
 import DemoPosAbsolut from './components/demo-pos-absolute.vue'
 import DemoPosSticky from './components/demo-pos-sticky.vue'
+import DemoStickyTable from './components/demo-stick-table.vue'
 
 export default {
   name: 'app',
   components: {
     DemoPosAbsolut,
-    DemoPosSticky,
-  }
+		DemoPosSticky,
+		DemoStickyTable,
+  },
+	data() {
+		return {
+			active: DemoPosSticky,
+			list: [
+				{
+					label: 'DemoPosAbsolut',
+					component: DemoPosAbsolut,
+				},
+				{
+					label: 'DemoPosSticky',
+					component: DemoPosSticky,
+				},
+				{
+					label: 'DemoStickyTable',
+					component: DemoStickyTable,
+				},
+			]
+		}
+	}
 }
 </script>
 
